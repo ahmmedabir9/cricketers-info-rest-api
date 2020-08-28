@@ -14,8 +14,8 @@ router.post("/", (req, res, next) => {
 
   Player.find({
     username: { $regex: name, $options: "i" },
-    nationality: nationality,
-    role: role,
+    nationality: { $regex: nationality, $options: "i" },
+    role: { $regex: role, $options: "i" },
   })
     .sort({ name: 1 })
     .skip(skip)
